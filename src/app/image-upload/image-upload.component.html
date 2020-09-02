@@ -1,0 +1,27 @@
+<input type="file" (change)="readUrl($event)" name="profile_picture">
+<button class="btn btn-primary btn-sm" (click)="submit()">Submit</button>
+<div class="col-lg-5"
+    style="position: absolute;z-index:999; margin-left: 25%;
+     background: #f2f3f8; border: 3px solid #b9b3b3;
+      border-radius: 5px;" [hidden]="showcropImage">
+    <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true" [aspectRatio]="1 / 1"
+        [resizeToWidth]="128" (imageCropped)="imageCropped($event)"></image-cropper>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="showcropImage = true">
+            <span>
+                <i class="fa fa-crop"></i>
+                <span>Crop</span>
+            </span>
+        </button>
+    </div>
+</div>
+
+<p>output image</p>
+<div class="card" style="width:200px">
+    <img class="card-img-top img-fluid" [src]="base64Image" alt="Card image">
+    <div class="card-body">
+      <h4 class="card-title">John Doe</h4>
+      <p class="card-text">Some example text.</p>
+      <a href="#" class="btn btn-primary">See Profile</a>
+    </div>
+</div>
